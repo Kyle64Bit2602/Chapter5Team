@@ -8,14 +8,24 @@ default_range = range(1, 1000)
 
 start = 1
 set_range = 2
+exit_program = 3
 def main():
     # Set choice to 0
     choice = 0
-    while choice != exit_program:
+    while choice = 0:
         menu()
         choice = int(input('Select a choice:'))
         if choice == start:
             guess_(default_range)
+            choice = int(input('Select a choice:'))
+        elif choice == set_range:
+            randomize(min, max)
+            choice = int(input('Select a choice:'))
+        elif choice == exit_program:
+            print('Thank you for playing the guessing game.')
+        else:
+            choice = int(input('Please enter a valid number: '))
+            
   
     
 # Secondary Functions #
