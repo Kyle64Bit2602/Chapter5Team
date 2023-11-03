@@ -4,14 +4,28 @@ import turtle
 
 # Number Guessing Game #
 # Main Functions #
+default_range = range(1, 1000)
+
+start = 1
+set_range = 2
 def main():
+    # Set choice to 0
+    choice = 0
+    while choice != exit_program:
+        menu()
+        choice = int(input('Select a choice:'))
+        if choice == start:
+            guess_(default_range)
   
     
 # Secondary Functions #
 def menu():
     # Menu accepts no arguments
     # User has three choices: Start game, range, and exit the program.
-    
+    print('MENU\n----')
+    print('1) Start Game')
+    print('2) Set Range')
+    print('3) Exit')
 
 def user_name():
     # User_name accepts 2 arguments
