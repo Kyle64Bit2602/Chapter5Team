@@ -1,6 +1,5 @@
 import random
 import math
-import turtle
 
 # Number Guessing Game #
 # Main Functions #
@@ -12,13 +11,15 @@ set_range = 2
 exit_program = 3
 def main():
 
+    name1, name2 = user_name()
+
     # Set choice to 0
     choice = 0
     while choice == 0:
         menu()
         choice = int(input('Select a choice:'))
         if choice == start:
-            guess_(default_range)
+            guess(default_range, name1, name2)
             choice = int(input('Select a choice:'))
         elif choice == set_range:
             set_range()
@@ -54,13 +55,18 @@ def set_range():
     # Set range accepts no arguments
     # User inputs 2 values to change the range for the guessing game
     # Program returns them
+    
     min_r = int(input('Please enter a minimum value for your range: '))
+    
     while min_r <= 0:
         min_r = int(input('Please enter a valid number: '))
     max_r = int(input('Please enter a maximum value for your range: '))
+    
     while max_r <= 0:
        max_r = int(input('Please enter a valid number: '))
+        
     return min_r, max_r
+  
 def guess(num, name1, name2):
     # Guess accepts one argument
     # Guess calls randomize and uses the random integer to determine a number
@@ -73,18 +79,23 @@ def guess(num, name1, name2):
     while num != guess1 and num != guess2:
         print(name1, ', guess your number', sep='', end='')
         guess1 = int(input(': '))
-        print('Better luck next time.')
-        print()
-            
+        
         if num == guess1 and num != guess2:
             print('Congrats!', name1, 'Has won!')
+            
         else:
-            if guess1!= num and guess2 != num:
+            print('Better luck next time.')
+            print()
+            
+            if guess1 != num and guess2 != num:
                 print(name2, ', guess your number', sep='', end='')
                 guess2 = int(input(': '))
-                print('You tried.')
-                print()
-    
-            elif guess2 == num:
-                print('Congrats!', name2, 'Has won!')
+                 
+                if guess2 == num:
+                    print('Congrats!', name2, 'Has won!')
+
+                else:
+                    print('You tried.')
+                    print()
+
         
