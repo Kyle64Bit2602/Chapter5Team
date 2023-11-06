@@ -11,13 +11,15 @@ set_range = 2
 exit_program = 3
 def main():
 
+    name1, name2 = user_name()
+
     # Set choice to 0
     choice = 0
-    while choice = 0:
+    while choice == 0:
         menu()
         choice = int(input('Select a choice:'))
         if choice == start:
-            guess_(default_range)
+            guess(default_range, name1, name2)
             choice = int(input('Select a choice:'))
         elif choice == set_range:
             randomize(min, max)
@@ -69,18 +71,22 @@ def guess(num, name1, name2):
     while num != guess1 and num != guess2:
         print(name1, ', guess your number', sep='', end='')
         guess1 = int(input(': '))
-        print('Better luck next time.')
-        print()
-            
+        
         if num == guess1 and num != guess2:
             print('Congrats!', name1, 'Has won!')
+            
         else:
-            if guess1!= num and guess2 != num:
+            print('Better luck next time.')
+            print()
+            
+            if guess1 != num and guess2 != num:
                 print(name2, ', guess your number', sep='', end='')
                 guess2 = int(input(': '))
-                print('You tried.')
-                print()
-    
-            elif guess2 == num:
-                print('Congrats!', name2, 'Has won!')
+                 
+                if guess2 == num:
+                    print('Congrats!', name2, 'Has won!')
+
+                else:
+                    print('You tried.')
+                    print()
         
