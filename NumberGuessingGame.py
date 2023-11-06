@@ -4,15 +4,40 @@ import turtle
 
 # Number Guessing Game #
 # Main Functions #
+default_range = range(1, 1000)
+
+start = 1
+set_range = 2
+exit_program = 3
 def main():
-    pass
+
+    # Set choice to 0
+    choice = 0
+    while choice = 0:
+        menu()
+        choice = int(input('Select a choice:'))
+        if choice == start:
+            guess_(default_range)
+            choice = int(input('Select a choice:'))
+        elif choice == set_range:
+            randomize(min, max)
+            choice = int(input('Select a choice:'))
+        elif choice == exit_program:
+            print('Thank you for playing the guessing game.')
+        else:
+            choice = int(input('Please enter a valid number: '))
+
     
 # Secondary Functions #
 def menu():
     # Menu accepts no arguments
     # User has three choices: Start game, range, and exit the program.
     
-    pass
+    print('MENU\n----')
+    print('1) Start Game')
+    print('2) Set Range')
+    print('3) Exit')
+
 def user_name():
     # User_name accepts no arguments
     # Users input their first names
@@ -51,7 +76,7 @@ def guess(num, name1, name2):
             print('Congrats!', name1, 'Has won!')
         else:
             if guess1!= num and guess2 != num:
-                print(name2, ', guess your number', sep='', end='')				#loops after finished
+                print(name2, ', guess your number', sep='', end='')
                 guess2 = int(input(': '))
                 print('You tried.')
                 print()
