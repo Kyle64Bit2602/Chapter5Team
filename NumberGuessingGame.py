@@ -1,10 +1,10 @@
 import random
 import math
-import turtle
 
 # Number Guessing Game #
 # Main Functions #
-default_range = range(1, 1000)
+min_r = 1
+max_r = 1000
 
 start = 1
 set_range = 2
@@ -22,7 +22,7 @@ def main():
             guess(default_range, name1, name2)
             choice = int(input('Select a choice:'))
         elif choice == set_range:
-            randomize(min, max)
+            set_range()
             choice = int(input('Select a choice:'))
         elif choice == exit_program:
             print('Thank you for playing the guessing game.')
@@ -51,14 +51,22 @@ def user_name():
     
     return name1, name2
     
-def randomize(min, max):
-    # Randomize accepts two arguments
-    # Uses the arguments min and max to determine a range for a random number
+def set_range():
+    # Set range accepts no arguments
+    # User inputs 2 values to change the range for the guessing game
+    # Program returns them
     
-    num = random.randint(min, max)
+    min_r = int(input('Please enter a minimum value for your range: '))
     
-    return num
+    while min_r <= 0:
+        min_r = int(input('Please enter a valid number: '))
+    max_r = int(input('Please enter a maximum value for your range: '))
     
+    while max_r <= 0:
+       max_r = int(input('Please enter a valid number: '))
+        
+    return min_r, max_r
+  
 def guess(num, name1, name2):
     # Guess accepts one argument
     # Guess calls randomize and uses the random integer to determine a number
@@ -89,4 +97,5 @@ def guess(num, name1, name2):
                 else:
                     print('You tried.')
                     print()
+
         
