@@ -41,7 +41,7 @@ def guess(num, name1, name2):
     guess1 = 0
     guess2 = 0
     
-    while num != guess1 or num != guess2:
+    while num != guess1 and num != guess2:
         print(name1, ', guess your number', sep='', end='')
         guess1 = int(input(': '))
         print('Better luck next time.')
