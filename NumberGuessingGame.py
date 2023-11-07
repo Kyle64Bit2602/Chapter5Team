@@ -9,23 +9,29 @@ max_r = 1000
 start = 1
 set_range = 2
 exit_program = 3
+
 def main():
 
     name1, name2 = user_name()
 
     # Set choice to 0
     choice = 0
+    
     while choice == 0:
         menu()
         choice = int(input('Select a choice:'))
+        
         if choice == start:
-            guess(default_range, name1, name2)
+            guess(max_r, min_r, default_range, name1, name2)
             choice = int(input('Select a choice:'))
+            
         elif choice == set_range:
             set_range()
             choice = int(input('Select a choice:'))
+            
         elif choice == exit_program:
             print('Thank you for playing the guessing game.')
+            
         else:
             choice = int(input('Please enter a valid number: '))
 
@@ -62,16 +68,13 @@ def set_range():
         min_r = int(input('Please enter a valid number: '))
     max_r = int(input('Please enter a maximum value for your range: '))
     
-<<<<<<< Updated upstream
     while max_r <= 0:
        max_r = int(input('Please enter a valid number: '))
         
     return min_r, max_r
   
-def guess(num, name1, name2):
-=======
-def guess(maximum, minimum, num, name1, name2):
->>>>>>> Stashed changes
+
+def guess(max_r, min_r, num, name1, name2):
     # Guess accepts one argument
     # Guess calls randomize and uses the random integer to determine a number
     # User inputs their own number and the random integer and user's number are compared
@@ -84,8 +87,8 @@ def guess(maximum, minimum, num, name1, name2):
         print(name1, ', guess your number', sep='', end='')
         guess1 = int(input(': '))
         
-        while guess1 > maximum or guess1 < minimum:
-            print('Please enter a number between ', maximum, ' and ', minimum, ' .', sep='')
+        while guess1 > max_r or guess1 < min_r:
+            print('Please enter a number between ', max_r, ' and ', min_r, ' .', sep='')
             print(name1, ', guess your number', sep='', end='')
             guess1 = int(input(': '))
         
@@ -106,8 +109,8 @@ def guess(maximum, minimum, num, name1, name2):
             print(name2, ', guess your number', sep='', end='')
             guess2 = int(input(': '))
             
-            while guess1 > maximum or guess1 < minimum:
-                print('Please enter a number between ', maximum, ' and ', minimum, ' .', sep='')
+            while guess1 > max_r or guess1 < min_r:
+                print('Please enter a number between ', max_r, ' and ', min_r, ' .', sep='')
                 print(name2, ', guess your number', sep='', end='')
                 guess2 = int(input(': '))
                 
@@ -119,13 +122,7 @@ def guess(maximum, minimum, num, name1, name2):
                 if guess2 < num:
                     print('Try a higher number.')
                     print()
-<<<<<<< Updated upstream
-
         
-=======
-                    
                 elif guess2 > num:
                     print('Try a lower number.')
                     print()
-
->>>>>>> Stashed changes
