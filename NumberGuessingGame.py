@@ -26,7 +26,7 @@ def main():
             choice = int(input('Select a choice:'))
             
         elif choice == set_range:
-            set_range()
+            max_r, min_r = set_range()
             choice = int(input('Select a choice:'))
             
         elif choice == exit_program:
