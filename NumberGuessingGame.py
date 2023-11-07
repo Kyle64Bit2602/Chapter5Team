@@ -62,12 +62,16 @@ def set_range():
         min_r = int(input('Please enter a valid number: '))
     max_r = int(input('Please enter a maximum value for your range: '))
     
+<<<<<<< Updated upstream
     while max_r <= 0:
        max_r = int(input('Please enter a valid number: '))
         
     return min_r, max_r
   
 def guess(num, name1, name2):
+=======
+def guess(maximum, minimum, num, name1, name2):
+>>>>>>> Stashed changes
     # Guess accepts one argument
     # Guess calls randomize and uses the random integer to determine a number
     # User inputs their own number and the random integer and user's number are compared
@@ -80,22 +84,48 @@ def guess(num, name1, name2):
         print(name1, ', guess your number', sep='', end='')
         guess1 = int(input(': '))
         
+        while guess1 > maximum or guess1 < minimum:
+            print('Please enter a number between ', maximum, ' and ', minimum, ' .', sep='')
+            print(name1, ', guess your number', sep='', end='')
+            guess1 = int(input(': '))
+        
         if num == guess1 and num != guess2:
             print('Congrats!', name1, 'Has won!')
             
         else:
-            print('Better luck next time.')
-            print()
             
-            if guess1 != num and guess2 != num:
+            if guess2 < num:
+                print('Try a higher number.')
+                print()
+                
+            elif guess2 > num:
+                print('Try a lower number.')
+                print()
+                
+        if guess1 != num and guess2 != num:
+            print(name2, ', guess your number', sep='', end='')
+            guess2 = int(input(': '))
+            
+            while guess1 > maximum or guess1 < minimum:
+                print('Please enter a number between ', maximum, ' and ', minimum, ' .', sep='')
                 print(name2, ', guess your number', sep='', end='')
                 guess2 = int(input(': '))
-                 
-                if guess2 == num:
-                    print('Congrats!', name2, 'Has won!')
+                
+            if guess2 == num:
+                print('Congrats!', name2, 'Has won!')
 
-                else:
-                    print('You tried.')
+            else:
+                
+                if guess2 < num:
+                    print('Try a higher number.')
                     print()
+<<<<<<< Updated upstream
 
         
+=======
+                    
+                elif guess2 > num:
+                    print('Try a lower number.')
+                    print()
+
+>>>>>>> Stashed changes
