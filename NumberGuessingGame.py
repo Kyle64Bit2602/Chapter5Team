@@ -3,37 +3,43 @@ import math
 
 # Number Guessing Game #
 # Main Functions #
-min_r = 1
-max_r = 1000
 
-start = 1
-set_range = 2
-exit_program = 3
+
 
 def main():
 
     name1, name2 = user_name()
 
-    # Set choice to 0
+    # Set varibles
     choice = 0
+    min_r = 1
+    max_r = 1000
+    ran_num = random.randint(min_r, max_r)
+
+    start = 1
+    setrange = 2
+    exit_program = 3
     
     while choice == 0:
         menu()
         choice = int(input('Select a choice:'))
         
         if choice == start:
-            guess(max_r, min_r, default_range, name1, name2)
+            guess(max_r, min_r, ran_num, name1, name2)
             choice = int(input('Select a choice:'))
             
-        elif choice == set_range:
-            max_r, min_r = set_range()
+        elif choice == setrange:
+            min_r, max_r, ran_num = set_range()
             choice = int(input('Select a choice:'))
             
         elif choice == exit_program:
             print('Thank you for playing the guessing game.')
             
         else:
-            choice = int(input('Please enter a valid number: '))
+            print('Please enter a valid number.')
+            print()
+            menu()
+            choice = int(input('Select a choice:'))
 
     
 # Secondary Functions #
@@ -51,7 +57,7 @@ def user_name():
     # Users input their first names
     # Program returns them
     
-    #Ask for the names of players
+    # Ask for the names of players
     name1 = input('Please enter a name for player 1: ')
     name2 = input('Please enter a name for player 2: ')
     
@@ -69,9 +75,11 @@ def set_range():
     max_r = int(input('Please enter a maximum value for your range: '))
     
     while max_r <= 0:
-       max_r = int(input('Please enter a valid number: '))
+        max_r = int(input('Please enter a valid number: '))
+       
+    ran_num = random.randint(min_r, max_r)
         
-    return min_r, max_r
+    return min_r, max_r, ran_num
   
 
 def guess(max_r, min_r, num, name1, name2):
@@ -79,7 +87,7 @@ def guess(max_r, min_r, num, name1, name2):
     # Guess calls randomize and uses the random integer to determine a number
     # User inputs their own number and the random integer and user's number are compared
     
-    #Initalize loop
+    # Initalize loop
     guess1 = 0
     guess2 = 0
     
@@ -94,6 +102,7 @@ def guess(max_r, min_r, num, name1, name2):
         
         if num == guess1 and num != guess2:
             print('Congrats!', name1, 'Has won!')
+            print()
             
         else:
             
@@ -116,6 +125,7 @@ def guess(max_r, min_r, num, name1, name2):
                 
             if guess2 == num:
                 print('Congrats!', name2, 'Has won!')
+                print()
 
             else:
                 
