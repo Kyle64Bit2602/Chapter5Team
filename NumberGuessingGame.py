@@ -11,36 +11,21 @@ def main():
     name1, name2 = user_name()
 
     # Set varibles
-    choice = 0
     min_r = 1
     max_r = 1000
     ran_num = random.randint(min_r, max_r)
 
     start = 1
     setrange = 2
-    exit_program = 3
-    
-    while choice == 0:
-        menu()
-        choice = int(input('Select a choice:'))
-        
+    choice = menu()
+    while choice >= 1 and choice <= 2:
         if choice == start:
             guess(max_r, min_r, ran_num, name1, name2)
-            choice = int(input('Select a choice:'))
-            
         elif choice == setrange:
             min_r, max_r, ran_num = set_range()
-            choice = int(input('Select a choice:'))
-            
-        elif choice == exit_program:
-            print('Thank you for playing the guessing game.')
-            
-        else:
-            print('Please enter a valid number.')
-            print()
-            menu()
-            choice = int(input('Select a choice:'))
-
+        choice = menu()
+        
+       
     
 # Secondary Functions #
 def menu():
@@ -51,6 +36,8 @@ def menu():
     print('1) Start Game')
     print('2) Set Range')
     print('3) Exit')
+    choice = int(input('Select a choice:'))
+    return choice
 
 def user_name():
     # User_name accepts no arguments
